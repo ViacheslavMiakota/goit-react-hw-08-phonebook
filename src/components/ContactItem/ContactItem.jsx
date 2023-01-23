@@ -1,14 +1,19 @@
-import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/contactsSlice';
+
 import PropTypes from 'prop-types';
 import { Item } from 'components/ContactItem/ContactItem.styled';
 import { FormButton } from 'components/Form/Form.styled';
 
-const ContactItem = ({ id, name, number, onDelete }) => {
+const ContactItem = ({ id, name, number }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => dispatch(deleteContact(id));
   return (
-    <Item key={id}>
+    <Item>
       <p>{name}:</p>
       <p>{number}</p>
-      <FormButton onClick={() => onDelete(id)}>DELETE</FormButton>
+      <FormButton onClick={handleDelete}>DELETE</FormButton>
     </Item>
   );
 };
@@ -18,5 +23,4 @@ ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
 };
