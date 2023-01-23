@@ -14,7 +14,6 @@ const getVisibleContacts = (filter, contacts) => {
 const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  console.log(filter);
   const visibleContacts = getVisibleContacts(filter, contacts);
 
   return visibleContacts.map(({ id, name, number }) => (
