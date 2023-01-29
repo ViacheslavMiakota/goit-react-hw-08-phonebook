@@ -51,7 +51,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <ThemeProvider theme={theme} autoComplete="off">
+    <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid

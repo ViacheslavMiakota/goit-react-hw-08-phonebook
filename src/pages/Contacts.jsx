@@ -1,17 +1,18 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   Container,
   Title,
   ContactTitle,
   Warning,
 } from 'components/App/App.styled';
-import { useEffect } from 'react';
+
 import Loader from 'components/Loader/Loader';
 import ContactForm from 'components/Form/Form';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 
 import {
   selectContacts,
