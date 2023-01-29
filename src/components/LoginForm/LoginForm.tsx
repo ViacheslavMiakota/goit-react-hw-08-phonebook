@@ -12,10 +12,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/authOperations';
 
-function Copyright(props) {
+function Copyright(props: any) {
   return (
     <Typography
       variant="body2"
@@ -25,7 +23,7 @@ function Copyright(props) {
     >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Phone book
+        Your Website
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -35,23 +33,18 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export const LoginForm = () => {
-  const dispatch = useDispatch();
-
-  const handleSubmit = event => {
+export default function SignInSide() {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
   return (
-    <ThemeProvider theme={theme} autoComplete="off">
+    <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -93,7 +86,6 @@ export const LoginForm = () => {
               sx={{ mt: 1 }}
             >
               <TextField
-                type="email"
                 margin="normal"
                 required
                 fullWidth
@@ -123,7 +115,7 @@ export const LoginForm = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Log in{' '}
+                Log In
               </Button>
               <Grid container>
                 <Grid item xs>
@@ -144,4 +136,4 @@ export const LoginForm = () => {
       </Grid>
     </ThemeProvider>
   );
-};
+}

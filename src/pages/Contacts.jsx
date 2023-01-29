@@ -4,11 +4,14 @@ import {
   ContactTitle,
   Warning,
 } from 'components/App/App.styled';
-import { useSelector } from 'react';
+import { useEffect } from 'react';
 import Loader from 'components/Loader/Loader';
 import ContactForm from 'components/Form/Form';
 import ContactList from 'components/ContactList/ContactList';
-// import Filter from 'components/Filter/Filter';
+import Filter from 'components/Filter/Filter';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
   selectContacts,
@@ -17,9 +20,15 @@ import {
 } from 'redux/contacts/contactsSelectors';
 
 export default function Contacts() {
+  const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <Container>
       <Title>Phonebook</Title>
@@ -28,7 +37,7 @@ export default function Contacts() {
       {isLoading && !error && <Loader isLoading={isLoading} />}
       {contacts.items.length > 0 ? (
         <>
-          {/* <Filter /> */}
+          <Filter />
           <ContactList />
         </>
       ) : (

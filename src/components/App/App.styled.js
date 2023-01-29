@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 export const Title = styled.h1`
-  color: blue;
+  color: #331616a3;
 `;
 export const ContactTitle = styled.h2`
   font-size: 1.8em;

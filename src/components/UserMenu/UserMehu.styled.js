@@ -8,3 +8,11 @@ export const UserWraper = styled.div`
 export const UserName = styled.p`
   font-weight: 700;
 `;
+export const UserButton = styled.p`
+  display: inline-block;
+  text-decoration: none;
+  padding: 4px;
+  font-weight: 700;
+  color: #2a363b;
+  cursor: pointer;
+`;

@@ -16,10 +16,7 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>
-        There will be a phone book here{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
+        Here will be your phone book. Please register.
       </h1>
     </div>
   );

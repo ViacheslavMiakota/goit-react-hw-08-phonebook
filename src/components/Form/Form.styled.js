@@ -21,8 +21,8 @@ export const FormInput = styled.input`
 `;
 export const FormButton = styled.button`
   padding: 8px;
-  background-color: #3f3fd8;
+  background-color: #00000085;
   color: #fff;
-  border-color: blue;
+  border-color: #00000085;
   border-radius: 8px;
 `;
