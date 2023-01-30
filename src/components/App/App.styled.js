@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  gap: 20px;
+
+  padding: 12px;
+  gap: 12px;
   align-items: center;
 `;
 export const Title = styled.h1`

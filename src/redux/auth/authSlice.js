@@ -34,14 +34,18 @@ const authSlice = createSlice({
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
+      state.isLoading = true;
+      state.error = null;
     },
     [refreshUser.fulfilled](state, action) {
       state.user = action.payload;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
-    [refreshUser.rejected](state) {
+    [refreshUser.rejected](state, action) {
       state.isRefreshing = false;
+      state.isLoading = false;
+      state.error = action.payload;
     },
   },
 });

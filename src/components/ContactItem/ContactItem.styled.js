@@ -4,7 +4,8 @@ export const Item = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 350px;
+  min-width: 350px;
+  flex-basis: calc(50%-20px);
   background-color: #bdbdbdd1;
   padding: 4px 8px;
   border-radius: 4px;
